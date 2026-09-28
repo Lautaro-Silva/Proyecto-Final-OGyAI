@@ -1,0 +1,50 @@
+% Apéndice A — cómo se produjo este informe (se incluye desde informe.tex)
+Este informe se produjo con el mismo tipo de herramientas que analiza, y el proceso tuvo sus propias
+fallas; las registramos por coherencia.
+
+\paragraph{Organización.} Una sesión de Claude Code (Opus~5.5), aislada en una rama propia y sin permiso
+para hacer \emph{commits} sin autorización explícita, actuó como coordinadora. Primero convirtió las
+transcripciones locales (unos 60\,MB de JSONL) en texto legible (3\,MB) con un script propio, excluido
+del control de versiones porque las transcripciones pueden contener rutas internas del servidor de la
+colaboración. Luego escribió una consigna común (\code{notes/AGENT\_BRIEF.md}) con el estándar de
+evidencia y una plantilla de notas, y lanzó ocho agentes de lectura en paralelo:
+\begin{center}\small
+\begin{tabular}{ll}
+\toprule
+Agente & Fuentes\\
+\midrule
+T1, T2, T3 & transcripciones de Claude (29/08--02/09, 03/09--10/09, 10/09--23/09)\\
+C1, C2 & transcripciones de Codex (hilo principal de Astra; sesiones posteriores)\\
+R & artefactos en \code{claude\_work/} (linaje de cada afirmación física)\\
+G & \code{git}, \emph{pull requests}, \code{CLAUDE.md}, \code{AGENTS.md}, memoria, prompts\\
+P & cuaderno de laboratorio, evolución de scripts, notas GAP y capítulos de la tesis\\
+\bottomrule
+\end{tabular}
+\end{center}
+Un noveno agente verificó contra las fuentes primarias 21 afirmaciones clave (20 confirmadas, 1 con
+matices) y un décimo revisó el primer borrador en modo adversarial.
+
+\paragraph{Fallas del propio proceso.}
+\begin{itemize}
+  \item \textbf{Nuestra consigna tenía el signo al revés.} El resumen inicial decía que \emph{quitar} el
+  requisito producía la inversión; es al revés. Lo detectó el primer agente en terminar, contrastando con
+  los números de las sesiones; corregimos la consigna y avisamos a los demás agentes en curso. Es el mismo
+  tipo de error que estudia el informe: una afirmación del coordinador que, sin verificación, se habría
+  propagado a todos los agentes.
+  \item \textbf{Límite de uso.} Siete de los ocho agentes fueron interrumpidos por el límite de sesión de la
+  cuenta; seis ya habían escrito sus notas completas y dos se relanzaron horas después con la instrucción
+  de escribir la nota antes del resumen final.
+  \item \textbf{Fricción de herramientas.} El aislamiento de la sesión rechazaba cualquier comando cuyo
+  texto contuviera la cadena «git» (incluida la ruta \code{/Github/}); se resolvió con scripts auxiliares.
+  \item \textbf{Una cita inventada por una herramienta.} El resumen automático de una página web nos atribuyó
+  a Schwartz la frase «se atraparon errores mutuamente», que no figura en el artículo. La detectó el revisor
+  adversarial y la eliminamos tras reverificar textualmente todas las citas del curso.
+  \item \textbf{El primer borrador tenía errores de fondo.} La revisión adversarial (61 observaciones) encontró
+  que el borrador atribuía el sesgo sólo a la línea \code{HasStation} (la selección estaba también en la
+  estructura de los datos), omitía que todo es Monte Carlo y que el UMD también está seleccionado, recortaba
+  una cita condicional, afirmaba una relación causal que la transcripción contradice y tenía tres conteos mal.
+  Esta versión incorpora esas correcciones.
+  \item \textbf{Fuente inaccesible.} El enlace compartido de ChatGPT devolvió un error de acceso; usamos el
+  registro local de Codex; según el tesista todo el trabajo se hizo por terminal, así que es la misma
+  conversación.
+\end{itemize}

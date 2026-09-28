@@ -1,0 +1,35 @@
+% Apéndice B — cronología detallada (horas en UTC; hora local = UTC−3)
+{\small
+\begin{longtable}{>{\raggedright}p{2.3cm}>{\raggedright}p{2.2cm}p{7.2cm}>{\raggedright\arraybackslash}p{2.8cm}}
+\toprule
+\textbf{Fecha} & \textbf{Actor} & \textbf{Hecho} & \textbf{Evidencia}\\
+\midrule\endhead
+09/10/2025 & tesista & Aparece el chequeo \code{HasStation} (protección contra nulos) & \code{e9a2737}\\
+04/11/2025 & tesista & Regla del cuaderno: cortes de calidad como banderas, filtrar después & \code{Trabajo.tex:168}\\
+05--11/11/2025 & tesista & \code{HasStation} pasa a descartar la fila; rotulado «Corte de Calidad 1» & \code{41b98be}, \code{ce4e0eb}\\
+13/07/2026 & tesista & Se abandona el Monte Carlo rápido para explicar la inversión & \code{6d6b97b}\\
+28/08/2026 & curso & Clase «Primeros pasos con Claude Code» & cronograma\\
+29/08 & Sonnet~5 + 3 subag. & Se crea \code{CLAUDE.md}; primera revisión de las notas GAP & \code{fa012d6}; \code{c468bc17}\\
+31/08 & Opus~5 & Segunda revisión: corrige la primera & \code{df3c0277}\\
+02/09 14:26 & tesista & «podríamos chequearlo después»: la inversión se da por física & \code{df3c0277}\\
+02/09 15:03 & Sonnet~5 & Chequeo con \code{agreement: NO} informado como «verificado» & \code{df3c0277}\\
+02/09 & Opus~5 / Sonnet~5 & \code{git rm --cached}: se pierden los cuadernos del tesista; recuperados & \code{40e7257}, \code{77ad431}\\
+04/09 05:00 & tesista $\to$ Opus~5 & Corrección espectral: UMD $+0.13$/$+0.11$, SD $+0.19$/$-0.10$ & \code{67ae9e4}\\
+07/09 14:12 & subagente Opus~5 & Señala \code{HasStation} como compuerta de selección & \code{a7da6dcd}\\
+07/09 14:23 & Sonnet~5 & «no sobrevive a la prueba directa» (\emph{bootstrap} de filas) & \code{60fca507}\\
+10/09 13:41 & tesista & «B\&B es del SD»: retractación y memoria permanente & \code{88fffbb}\\
+10/09 14:06 & Sonnet~5 & Redacta el prompt para Codex («tratar como establecido») & \code{60fca507}\\
+10/09 14:22 & Astra & «Eso no queda descartado por el bootstrap anterior» & Codex \code{01a08ba1}\\
+10/09 19:30 & Astra & 20 archivos: $+0.068\to-0.095$, IC\,95\,\% de la diferencia $[-0.178,-0.145]$ & Codex \code{01a08ba1}\\
+11/09 03:16 & Astra & Reproduce la figura del tesista; $+0.069\to-0.124$ (1200--1350\,m) & \code{02\_reproduccion}\\
+11/09 08:18 loc. & Astra & \emph{Commits} del paquete y del resumen para el director & \code{b072c09}, \code{98a48c9}\\
+11/09 17:10 & Opus~5 / Sonnet~5 + 6+1 subag. & Revisión escéptica de Astra: «parcialmente de acuerdo» & \code{REVIEW\_ASTRA}\\
+17/09 13:49 & tesista & Nota la pérdida de filas del lector de Astra & Codex \code{01a08ba1}\\
+17/09 & Opus~5 & Lector de dos tablas; el tesista corre el reprocesamiento & \code{8d4b5a0}, \code{0ecae20}\\
+17/09 & tesista & Charla RAFA 2026, con el resultado como «análisis preliminar» & \code{114fd52}, \code{ca3037a}\\
+23/09 23:44 & Astra & Audita el reprocesamiento de Claude; tres huecos de validación & Codex \code{01a08ba1}\\
+24/09 00:17 loc. & Opus~5 & Confirmación sobre el pipeline del tesista & \code{c332ab8}\\
+24/09 03:24 & Astra + 3 subag. & Borradores de los capítulos 3, 5 y 6 & \code{borradores\_\ldots}\\
+\bottomrule
+\end{longtable}
+}

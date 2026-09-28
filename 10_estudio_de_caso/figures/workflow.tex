@@ -1,0 +1,64 @@
+% Diagrama del flujo de trabajo humano + agentes. Compilar: pdflatex workflow.tex
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,calc}
+\definecolor{autor}{HTML}{2A78D6}
+\definecolor{claude}{HTML}{EB6834}
+\definecolor{codex}{HTML}{1BAF7A}
+\definecolor{tinta}{HTML}{0B0B0B}
+\definecolor{tinta2}{HTML}{52514E}
+\definecolor{caja}{HTML}{F4F3F0}
+
+\begin{document}
+\begin{tikzpicture}[font=\footnotesize,node distance=6mm and 10mm,
+  box/.style={draw=#1,line width=1.2pt,rounded corners=3pt,fill=white,align=center,inner sep=5pt,text=tinta},
+  box/.default=tinta2,
+  sub/.style={draw=#1,rounded corners=2pt,fill=white,align=center,inner sep=3pt,font=\scriptsize,text=tinta},
+  flow/.style={-{Latex[length=2.2mm]},line width=0.8pt,tinta2},
+  cross/.style={{Latex[length=2.2mm]}-{Latex[length=2.2mm]},line width=1.1pt,tinta,dashed},
+  gate/.style={font=\scriptsize\itshape,text=tinta2}]
+
+% Autor
+\node[box=autor,minimum width=11.4cm] (autor) {\textbf{Tesista (humano en el circuito)}\\[1pt]
+  \scriptsize escribe los prompts \textperiodcentered{} objeta la física \textperiodcentered{} aprueba cada \textit{commit} \textperiodcentered{} fusiona los PR \textperiodcentered{} corre el cómputo pesado};
+
+% Contexto compartido
+\node[box, below=7mm of autor, minimum width=11.4cm, fill=caja] (ctx) {\textbf{Contexto persistente compartido}\\[1pt]
+  \scriptsize \texttt{CLAUDE.md} (reglas + mapa + callejones sin salida) \textperiodcentered{} \texttt{AGENTS.md} $\to$ «leé CLAUDE.md» \textperiodcentered{} notas previas en \texttt{claude\_work/}};
+
+% Agentes
+\node[box=claude, minimum width=5.6cm, minimum height=2.9cm, anchor=north] (claude) at ($(ctx.south)+(-3.3,-9mm)$) {};
+\node[anchor=north,font=\footnotesize\bfseries,text=tinta] at (claude.north) {Claude Code};
+\node[sub=claude, below=6mm of claude.north] (plan) {Opus 5: planifica / analiza};
+\node[sub=claude, below=2mm of plan] (exec) {Sonnet 5: ejecuta};
+\node[sub=claude, below=2mm of exec] (csub) {subagentes paralelos (3--7)};
+\node[sub=claude, below=2mm of csub] (cmem) {memoria privada (Codex no la ve)};
+
+\node[box=codex, minimum width=5.6cm, minimum height=2.9cm, anchor=north] (codex) at ($(ctx.south)+(3.3,-9mm)$) {};
+\node[anchor=north,font=\footnotesize\bfseries,text=tinta] at (codex.north) {Codex CLI};
+\node[sub=codex, below=6mm of codex.north] (astra) {gpt-6-astra («Astra»)};
+\node[sub=codex, below=2mm of astra] (xsub) {subagentes por capítulo (3)};
+\node[sub=codex, below=2mm of xsub] (guard) {revisor automático de acciones};
+
+\draw[cross] (claude.east) -- node[above,font=\scriptsize,text=tinta,align=center]{revisión\\cruzada} (codex.west);
+
+% Git
+\node[box, anchor=north, minimum width=11.4cm, text width=12.4cm] (vcs) at ($(ctx.south |- claude.south)+(0,-8mm)$) {\textbf{Git}: rama por tarea (\textit{worktree}) $\to$ \textit{push} de la rama $\to$ PR $\to$ \textit{merge} a \texttt{main} \textbf{solo por el tesista}};
+\node[box, below=5mm of vcs, minimum width=11.4cm, text width=12.4cm] (art) {\textbf{Artefactos}: notas, scripts reproducibles, borradores de capítulos, figuras (\texttt{claude\_work/})};
+
+% Flechas
+\draw[flow] (autor) -- (ctx);
+\draw[flow] (claude.north |- ctx.south) -- (claude.north);
+\draw[flow] (codex.north |- ctx.south) -- (codex.north);
+\draw[flow] (claude.south) -- (claude.south |- vcs.north);
+\draw[flow] (codex.south) -- (codex.south |- vcs.north);
+\draw[flow] (vcs) -- (art);
+\coordinate (R) at ($(ctx.east)+(7mm,0)$);
+\coordinate (L) at ($(ctx.west)+(-7mm,0)$);
+\draw[flow,autor] (autor.east) -- (autor.east -| R) -- node[pos=0.5,right,gate,text=autor,align=left]{«commit\\and push»\\(explícito)} (vcs.east -| R) -- (vcs.east);
+\draw[flow,autor] (art.west) -- (art.west -| L) -- node[pos=0.5,left,gate,text=autor,align=right]{revisa,\\corrige,\\reformula\\el pedido} (autor.west -| L) -- (autor.west);
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,15 @@
+# Raw transcript extracts may contain internal server paths/usernames: never commit.
+notes/_transcripts/
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.nav
+*.snm
+*.fls
+*.fdb_latexmk

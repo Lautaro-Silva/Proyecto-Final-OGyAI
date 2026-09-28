@@ -1,0 +1,97 @@
+% Línea de tiempo del proceso asistido por IA (29/08 -> 24/09/2026).
+% Figura autónoma: compilar con  pdflatex timeline.tex
+% Colores: primeras tres ranuras categóricas de la paleta de referencia (validadas todas-las-parejas).
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\definecolor{autor}{HTML}{2A78D6}
+\definecolor{claude}{HTML}{EB6834}
+\definecolor{codex}{HTML}{1BAF7A}
+\definecolor{tinta}{HTML}{0B0B0B}
+\definecolor{tinta2}{HTML}{52514E}
+\definecolor{grilla}{HTML}{DDDCD8}
+\definecolor{fondoA}{HTML}{F4F3F0}
+\definecolor{fondoB}{HTML}{E9F5EF}
+
+\begin{document}
+\begin{tikzpicture}[x=0.62cm,y=1cm,font=\footnotesize,
+  ev/.style={circle,draw=white,line width=0.8pt,minimum size=7pt,inner sep=0pt},
+  lab/.style={text=tinta,align=left,inner sep=1pt,font=\scriptsize},
+  key/.style={ev,minimum size=10pt}]
+% día 0 = 29/08 ; día -1 = 28/08 (inicio del curso) ; día 26 = 24/09
+% --- fases (fondo)
+\fill[fondoA] (-1,-0.2) rectangle (12.4,6.3);
+\fill[fondoB] (12.4,-0.2) rectangle (26.6,6.3);
+\node[text=tinta2,font=\scriptsize\bfseries,anchor=north west] at (-0.9,6.25) {Fase fenomenológica: se busca un mecanismo físico};
+\node[text=tinta2,font=\scriptsize\bfseries,anchor=north west] at (12.5,6.25) {Fase de selección: se prueba y consolida el sesgo};
+% --- carriles
+\foreach \y/\n/\c in {4.6/Tesista/autor, 2.8/Claude Code/claude, 1.0/Codex (Astra)/codex}{
+  \draw[grilla,line width=0.6pt] (-1,\y) -- (26.6,\y);
+  \node[anchor=east,text=tinta,font=\footnotesize\bfseries] at (-1.2,\y) {\n};
+  \fill[\c] (-1.15,\y-0.12) rectangle (-1.05,\y+0.12);
+}
+% --- eje de fechas
+\draw[tinta2] (-1,-0.2) -- (26.6,-0.2);
+\foreach \d/\t in {-1/28-ago,3/1-sep,8/6-sep,13/11-sep,18/16-sep,23/21-sep,26/24-sep}{
+  \draw[tinta2] (\d,-0.2) -- (\d,-0.32);
+  \node[text=tinta2,font=\scriptsize,anchor=north] at (\d,-0.32) {\t};
+}
+% curso
+\draw[autor,line width=2pt,opacity=0.35] (-1,5.35) -- (5,5.35);
+\node[text=tinta2,font=\scriptsize,anchor=west] at (5.1,5.35) {curso (28/08--03/09)};
+
+% --- Autor
+\node[ev,fill=autor] at (-1,4.6) {};
+\node[lab,anchor=north west] at (-1.1,4.48) {inicio del curso:\\«Primeros pasos\\con Claude Code»};
+\node[ev,fill=autor] at (4,4.6) {};
+\node[lab,anchor=south] at (4,4.72) {«podríamos chequearlo\\después»};
+\node[ev,fill=autor] at (6,4.6) {};
+\node[lab,anchor=north] at (6,4.48) {objeción:\\ponderar por $P(E)$};
+\node[ev,fill=autor] at (12,4.6) {};
+\node[lab,anchor=south] at (11.3,4.72) {«B\&B es del SD,\\no del UMD»};
+\node[ev,fill=autor] at (19,4.6) {};
+\node[lab,anchor=south] at (19,4.72) {detecta pérdida\\de filas; charla RAFA};
+\node[ev,fill=autor] at (19.4,4.6) {};
+\node[lab,anchor=north] at (20.2,4.48) {corre él mismo el\\reprocesamiento (8 núcleos)};
+
+% --- Claude
+\node[ev,fill=claude] at (0,2.8) {};
+\node[lab,anchor=south west] at (-0.1,2.92) {CLAUDE.md;\\1.ª revisión};
+\node[ev,fill=claude] at (2,2.8) {};
+\node[lab,anchor=north] at (1.6,2.68) {2.ª revisión\\corrige la 1.ª};
+\node[ev,fill=claude] at (4,2.8) {};
+\node[lab,anchor=south] at (4.5,2.92) {.ipynb borrados;\\«verificado» falso};
+\node[ev,fill=claude] at (6,2.8) {};
+\node[lab,anchor=north east] at (7.2,2.68) {corrección espectral:\\UMD $+0.13$ vs $+0.11$\\SD $+0.19$ vs $-0.10$};
+\node[key,fill=claude] at (9,2.8) {};
+\node[lab,anchor=south,font=\scriptsize\bfseries] at (9,2.95) {subagente señala\\\texttt{HasStation}\ldots};
+\node[lab,anchor=north west] at (8.0,2.66) {\ldots y se «descarta»\\con un test ciego};
+\node[ev,fill=claude] at (12.2,2.8) {};
+\node[lab,anchor=north] at (12.9,2.68) {escribe el prompt\\para Codex};
+\node[ev,fill=claude] at (13.3,2.8) {};
+\node[lab,anchor=south] at (14.2,2.92) {revisión adversarial\\de Astra};
+\node[ev,fill=claude] at (19.6,2.8) {};
+\node[lab,anchor=north] at (18.3,2.68) {lector nuevo\\(dos tablas)};
+\node[ev,fill=claude] at (26,2.8) {};
+\node[lab,anchor=south east] at (26.3,2.92) {confirmación:\\$+0.069\to-0.124$};
+
+% --- Codex
+\node[key,fill=codex] at (12.6,1.0) {};
+\node[lab,anchor=south,font=\scriptsize\bfseries] at (12.6,1.15) {«no queda descartado»};
+\node[lab,anchor=north,font=\scriptsize\bfseries] at (12.8,0.86) {$+0.068\to-0.095$\\(20 archivos)};
+\node[ev,fill=codex] at (19.2,1.0) {};
+\node[lab,anchor=north] at (19.2,0.88) {bug: $-63\,747$ filas};
+\node[ev,fill=codex] at (25.3,1.0) {};
+\node[lab,anchor=south] at (24.2,1.12) {audita a Claude};
+\node[ev,fill=codex] at (26,1.0) {};
+\node[lab,anchor=north east] at (26.3,0.88) {borradores Cap.\ 3/5/6\\(3 subagentes)};
+
+% --- flechas de revisión cruzada
+\draw[-latex,tinta2,dashed] (12.2,2.65) -- (12.55,1.2);
+\draw[-latex,tinta2,dashed] (12.75,1.2) -- (13.2,2.65);
+\draw[-latex,tinta2,dashed] (19.25,1.2) -- (19.55,2.65);
+\draw[-latex,tinta2,dashed] (25.2,1.15) .. controls (22,1.8) .. (19.75,2.65);
+\end{tikzpicture}
+\end{document}
