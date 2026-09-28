@@ -5,7 +5,8 @@
 
 Este repositorio documenta un **estudio de caso**: cómo se usaron agentes de IA (Claude Code y Codex) en una investigación real, la tesis de licenciatura de L. Silva Pizzi sobre las asimetrías azimutales de la densidad de muones medidas con el Detector Subterráneo de Muones (UMD) del Observatorio Pierre Auger.
 
-➡️ **Empezar por el informe: [`informe/informe.pdf`](informe/informe.pdf)**
+➡️ **Empezar por el informe breve (4 páginas): [`informe/informe_breve.pdf`](informe/informe_breve.pdf)**
+La versión extendida (16 páginas, con la cronología completa y la metodología) es [`informe/informe.pdf`](informe/informe.pdf).
 
 ---
 
@@ -19,7 +20,7 @@ Lo más interesante para el curso es que **un subagente de Claude propuso esa hi
 
 | Carpeta | Qué contiene | Quién | Fecha |
 |---|---|---|---|
-| [`informe/`](informe/) | **El informe final (PDF)** | — | sep. 2026 |
+| [`informe/`](informe/) | **Informes finales (PDF):** breve, 4 pp. (`informe_breve.pdf`), y extendido, 16 pp. (`informe.pdf`) | — | sep. 2026 |
 | [`00_punto_de_partida_notas_GAP/`](00_punto_de_partida_notas_GAP/) | Punto de partida: la nota interna previa (versión vieja, con el argumento de divergencia cinemática), la nota publicada GAP-2026-041 y una nota inconclusa sobre el sesgo de reconstrucción del núcleo | tesista | antes de ago. 2026 |
 | [`01_contexto_y_prompts/`](01_contexto_y_prompts/) | La «memoria de proyecto»: `CLAUDE.md` (reglas y mapa del repositorio que leen los agentes), `AGENTS.md` (hace que Codex lea lo mismo), los prompts de revisión y la memoria persistente de Claude (lecciones aprendidas de correcciones del tesista) | tesista + Claude | 29/08 → |
 | [`02_revisiones_claude_notas_GAP/`](02_revisiones_claude_notas_GAP/) | Primeras revisiones de las notas GAP por Claude, en cuatro versiones sucesivas (v1–v4) | Claude (Sonnet 5 / Opus 5) | 29/08–02/09 |

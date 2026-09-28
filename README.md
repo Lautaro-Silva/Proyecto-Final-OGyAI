@@ -6,7 +6,8 @@
 
 This repository documents how AI coding agents (**Claude Code** and **OpenAI Codex**) were used in a real, ongoing research problem: L. Silva Pizzi's Licenciatura thesis (FCEN-UBA / ITeDA) on the azimuthal asymmetries of the muon density measured with the Underground Muon Detector (UMD) of the Pierre Auger Observatory. We reconstructed the process from primary evidence (149 git commits, 49 agent session logs and every document the agents produced) and asked one question: **did the agents help or hinder the discovery that an apparently physical effect was a selection artifact?**
 
-➡️ **Start with the report: [`informe/informe.pdf`](informe/informe.pdf)** (in Spanish).
+➡️ **Start with the short report (4 pages): [`informe/informe_breve.pdf`](informe/informe_breve.pdf)** (in Spanish).
+The extended version (16 pages, with the full chronology and methods) is [`informe/informe.pdf`](informe/informe.pdf).
 
 ---
 
@@ -25,7 +26,7 @@ This repository documents how AI coding agents (**Claude Code** and **OpenAI Cod
 
 | Folder | Contents | Produced by | Dates (2026) |
 |---|---|---|---|
-| [`informe/`](informe/) | **Final report (PDF, Spanish)** | — | Sep |
+| [`informe/`](informe/) | **Final reports (PDF, Spanish):** short version, 4 pp. (`informe_breve.pdf`), and extended version, 16 pp. (`informe.pdf`) | — | Sep |
 | [`00_punto_de_partida_notas_GAP/`](00_punto_de_partida_notas_GAP/) | Starting point: the earlier internal note draft (with the kinematic-divergence argument), the published note GAP-2026-041, and an unfinished note on core-reconstruction bias | thesis author | before Aug |
 | [`01_contexto_y_prompts/`](01_contexto_y_prompts/) | "Project memory": `CLAUDE.md` (rules and repository map read by the agents), `AGENTS.md` (makes Codex read the same file), the review prompts, and Claude's persistent memory (lessons from the author's corrections) | author + Claude | 29 Aug → |
 | [`02_revisiones_claude_notas_GAP/`](02_revisiones_claude_notas_GAP/) | First Claude reviews of the GAP notes, four successive versions (v1–v4) | Claude (Sonnet 5 / Opus 5) | 29 Aug–2 Sep |
