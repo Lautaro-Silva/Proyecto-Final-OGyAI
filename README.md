@@ -8,6 +8,10 @@ Este repositorio documenta cómo se usaron agentes de IA para programación (**C
 ➡️ **Empezar por el informe breve (4 páginas): [`informe/informe_breve.pdf`](informe/informe_breve.pdf)**
 La versión extendida (16 páginas, con la cronología completa y la metodología) es [`informe/informe.pdf`](informe/informe.pdf).
 
+Para preparar la exposición del curso: [explicación corta](EXPLICACION_CORTA.md) y
+[primer borrador de la charla de 15–20 minutos](CHARLA_CURSO_BORRADOR.md), con guion oral,
+figuras sugeridas y fuentes. La [memoria de trabajo](MEMORY.md) registra el estado y los pendientes.
+
 ---
 
 ## La historia en breve
