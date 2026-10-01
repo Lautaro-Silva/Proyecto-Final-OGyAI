@@ -56,8 +56,8 @@ against the director summary and final report, not recomputed from raw simulatio
   authored by Manuel Racca with the email the user provided.
 - Push to `origin` failed with HTTP 403: GitHub denied write permission to the
   authenticated account `manuelracca` on `Lautaro-Silva/Proyecto-Final-OGyAI`.
-  Network escalation was approved and authentication completed; repository write
-  access is the remaining issue. Nothing has been published.
+  That direct push published nothing. Publication subsequently succeeded through
+  the fork and pull request described below.
 - The user explicitly requested a pull request to Lautaro. This authorizes creating
   a fork in `manuelracca`, publishing the task branch there, and opening a PR against
   the upstream default branch with maintainer edits enabled.
