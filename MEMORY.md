@@ -58,9 +58,15 @@ against the director summary and final report, not recomputed from raw simulatio
   authenticated account `manuelracca` on `Lautaro-Silva/Proyecto-Final-OGyAI`.
   Network escalation was approved and authentication completed; repository write
   access is the remaining issue. Nothing has been published.
-- Asked the user to either obtain collaborator access from Lautaro or supply the
-  URL of a writable copy in their own account. Once access is available, push the
-  current task branch (including this publication-status update), then verify the
-  remote commit. Do not retry the same denied push before access changes.
+- The user explicitly requested a pull request to Lautaro. This authorizes creating
+  a fork in `manuelracca`, publishing the task branch there, and opening a PR against
+  the upstream default branch with maintainer edits enabled.
+- Local helper `.task-tools/github_pr.py` (outside the checkout) prepares that
+  workflow using Git Credential Manager; credentials are never printed or stored
+  in project files. The PR body is in `.task-tools/pr-body.md`.
+- Authentication was not reusable through `git credential fill`. A device-login
+  attempt is in progress; no fork or pull request has been confirmed yet. Resume
+  authentication, create/validate the fork, push to it, and open/verify the PR.
+- Do not retry the denied push to Lautaro's repository before write access changes.
 - Speaker allocation, rehearsal, and visual slide layout remain for the next iteration.
 - No full independent re-audit of the historical scientific evidence was performed.
