@@ -52,7 +52,15 @@ against the director summary and final report, not recomputed from raw simulatio
 
 - User supplied the Git author email on 2026-10-01; use Manuel Racca as the name.
   Configure identity only for this checkout.
-- Publication requested on `codex/memoria-charla-curso`. Check Git HEAD and the
-  remote tracking branch for the current commit/push status.
+- Deliverables were committed as `e50ae2d` on `codex/memoria-charla-curso`,
+  authored by Manuel Racca with the email the user provided.
+- Push to `origin` failed with HTTP 403: GitHub denied write permission to the
+  authenticated account `manuelracca` on `Lautaro-Silva/Proyecto-Final-OGyAI`.
+  Network escalation was approved and authentication completed; repository write
+  access is the remaining issue. Nothing has been published.
+- Asked the user to either obtain collaborator access from Lautaro or supply the
+  URL of a writable copy in their own account. Once access is available, push the
+  current task branch (including this publication-status update), then verify the
+  remote commit. Do not retry the same denied push before access changes.
 - Speaker allocation, rehearsal, and visual slide layout remain for the next iteration.
 - No full independent re-audit of the historical scientific evidence was performed.
