@@ -64,9 +64,9 @@ against the director summary and final report, not recomputed from raw simulatio
 - Local helper `.task-tools/github_pr.py` (outside the checkout) prepares that
   workflow using Git Credential Manager; credentials are never printed or stored
   in project files. The PR body is in `.task-tools/pr-body.md`.
-- Authentication was not reusable through `git credential fill`. A device-login
-  attempt is in progress; no fork or pull request has been confirmed yet. Resume
-  authentication, create/validate the fork, push to it, and open/verify the PR.
+- Browser authentication succeeded and the GitHub API confirmed creation of the
+  fork `manuelracca/Proyecto-Final-OGyAI` on 2026-10-01. Publish the task branch
+  there and open/verify the PR against Lautaro's default branch.
 - Do not retry the denied push to Lautaro's repository before write access changes.
 - Speaker allocation, rehearsal, and visual slide layout remain for the next iteration.
 - No full independent re-audit of the historical scientific evidence was performed.
